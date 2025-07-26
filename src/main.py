@@ -20,14 +20,15 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'promptlink-ultimate-orc
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Enable CORS for frontend integration
+Enable CORS for frontend integration
 CORS(app, origins=[
-    'http://localhost:3000',
-    'https://lucky-kheer-f8d0d3.netlify.app',
-    'https://thepromptlink.com',
-    'https://thepromptlink.netlify.app',
-    'https://singular-bunny-82fc57.netlify.app'
-])
+‘http://localhost:3000’,
+‘https://lucky-kheer-f8d0d3.netlify.app’,
+‘https://thepromptlink.com’,
+‘https://thepromptlink.netlify.app’,
+‘https://singular-bunny-82fc57.netlify.app’,
+‘https://voluble-syrniki-405bc9.netlify.app’
+], allow_headers=[‘Content-Type’, ‘Authorization’, ‘x-user-id’])
 
 # Register all blueprints (ULTIMATE SYSTEM)
 app.register_blueprint(agents_bp, url_prefix='/api')
