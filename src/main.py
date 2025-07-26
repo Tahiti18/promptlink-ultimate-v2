@@ -27,7 +27,7 @@ CORS(app, origins=[
     'https://thepromptlink.com',
     'https://thepromptlink.netlify.app',
     'https://singular-bunny-82fc57.netlify.app',
-    'https://voluble-syrniki-405bc9.netlify.app'
+    'https://dancing-meerkat-41c610.netlify.app'
 ], allow_headers=['Content-Type', 'Authorization', 'x-user-id'])
 
 # Register all blueprints (ULTIMATE SYSTEM)
@@ -261,6 +261,8 @@ def internal_error(error):
         'message': 'Please check logs for details'
     }), 500
 
+# Environment variables check
+@app.before_first_request
 def check_environment():
     """Check required environment variables"""
     required_vars = [
@@ -300,10 +302,6 @@ def check_environment():
     print("🌟 Features: 20 AI agents, Expert Panel, Conference Chain, Human Simulator, Payments")
 
 if __name__ == '__main__':
-    # Initialize environment check
-    with app.app_context():
-        check_environment()
-    
     port = int(os.environ.get('PORT', 5000))
     debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
     
