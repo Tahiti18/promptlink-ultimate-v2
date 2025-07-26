@@ -261,10 +261,11 @@ def internal_error(error):
         'message': 'Please check logs for details'
     }), 500
 
-# Environment variables check
-@app.before_first_request
-def check_environment():
-    """Check required environment variables"""
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
+    
+    # Check environment variables
     required_vars = [
         'OPENROUTER_API_KEY',
         'STRIPE_SECRET_KEY'
@@ -300,10 +301,6 @@ def check_environment():
     
     print("🚀 PromptLink Ultimate Backend - Revolutionary AI Orchestration System")
     print("🌟 Features: 20 AI agents, Expert Panel, Conference Chain, Human Simulator, Payments")
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    debug = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
     
     print("🚀 Starting PromptLink Ultimate Backend...")
     print(f"🌟 Revolutionary Features: Expert Panel + Conference Chain + Human Simulator")
