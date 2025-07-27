@@ -5,7 +5,7 @@ from datetime import datetime
 
 agents_bp = Blueprint('agents', __name__)
 
-# Complete 20-agent configuration
+# Complete 22-agent configuration
 AGENTS = {
     # Current working 10 agents
     'gpt-4o': {
@@ -43,6 +43,13 @@ AGENTS = {
         'specialty': 'Analytical Processing',
         'active': True
     },
+    'qwen-3-0': {
+        'name': 'Qwen 3.0',
+        'model': 'qwen/qwen-3-72b-instruct',
+        'description': 'Advanced reasoning & comprehensive analysis',
+        'specialty': 'Comprehensive Reasoning',
+        'active': True
+    },
     'gemini-2.0-flash': {
         'name': 'Gemini 2.0 Flash',
         'model': 'google/gemini-2.0-flash-exp',
@@ -52,7 +59,7 @@ AGENTS = {
     },
     'perplexity-pro': {
         'name': 'Perplexity Pro',
-        'model': 'perplexity/llama-3.1-sonar-huge-128k-online',
+        'model': 'perplexity/sonar-medium-online',  # Updated model ID
         'description': 'Research & fact-finding with web access',
         'specialty': 'Research Expert',
         'active': True
@@ -76,6 +83,13 @@ AGENTS = {
         'model': 'qwen/qwen-2.5-72b-instruct',
         'description': 'Multilingual expertise & cultural insights',
         'specialty': 'Multilingual Expert',
+        'active': True
+    },
+    'kimi-k2': {
+        'name': 'Kimi K2',
+        'model': 'moonshot-ai/kimi-v2',
+        'description': 'Knowledge integration & contextual understanding',
+        'specialty': 'Knowledge Integration',
         'active': True
     },
     
