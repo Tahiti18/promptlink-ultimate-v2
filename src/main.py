@@ -13,7 +13,9 @@ from routes.human_simulator import human_simulator_bp
 from routes.revolutionary_relay import revolutionary_relay_bp
 from routes.payments import payments_bp
 
+from flask_cors import CORS
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
+CORS(app)
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'promptlink-ultimate-orchestration-engine-secret-key')
